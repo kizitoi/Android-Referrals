@@ -32,9 +32,9 @@ $_SESSION['mypassword'] = $_REQUEST['password'];
 	 
 if($myfname!="")
 {
-if (file_exists("uploads/". $_FILES["file"]["name"]))
+if (file_exists( $_FILES["file"]["name"]))
 {
- unlink("uploads/".$_FILES["file"]["name"]); 
+ unlink($_FILES["file"]["name"]); 
 }
 }
 
@@ -54,10 +54,10 @@ if (($_FILES["file"]["type"] == "text/plain")&&($_FILES["file"]["size"] < $maxsi
     {
 		
 
-    if (file_exists("uploads/" . $_FILES["file"]["name"]))
+    if (file_exists( $_FILES["file"]["name"]))
       {
 		  
-		   unlink("uploads/".$_FILES["file"]["name"]);
+		   unlink($_FILES["file"]["name"]);
 		   
      //  $message = $_FILES["file"]["name"] . " already exists. Please view your folder";
 	  // echo  $message;
@@ -68,8 +68,8 @@ if (($_FILES["file"]["type"] == "text/plain")&&($_FILES["file"]["size"] < $maxsi
       {		  
 		
 move_uploaded_file($_FILES["file"]["tmp_name"],
- "uploads/" . $_FILES["file"]["name"]);
- // echo "Stored in: " . "uploads/" . $_FILES["file"]["name"];
+  $_FILES["file"]["name"]);
+ // echo "Stored in: " .  $_FILES["file"]["name"];
 $fname = $_FILES["file"]["name"];
 
 	 //$message = "Image uploaded...";
@@ -260,14 +260,14 @@ if($myfname!="")
 	
 	
 	
-$fh = fopen( "uploads/".$myfname,'r') or die($php_errormsg);
-$people = fread($fh,filesize("uploads/".$myfname));
+$fh = fopen( $myfname,'r') or die($php_errormsg);
+$people = fread($fh,filesize($myfname));
 } 
  
  
-$handle = @fopen( "uploads/".$myfname,'r');
+$handle = @fopen( $myfname,'r');
 
-//$handle = explode("\n", file_get_contents("uploads/".$myfname));
+//$handle = explode("\n", file_get_contents($myfname));
 
 if ($handle) {
     while (($buffer = fgets($handle, 4096)) !== false) {
@@ -298,7 +298,7 @@ $myfname = $_SESSION['myfile'];
 
 if($myfname!="")
 {	
-$file = fopen( "uploads/".$myfname,'r') or die($php_errormsg);
+$file = fopen( $myfname,'r') or die($php_errormsg);
 
 while ($line = fgets($file)) {list($sentId, $time, $latitude,$latitudeUnit, $logitude,$logitudeUnit, $fixquality,$satelites, $hdop, $altitude, $altitudeUnit, $heightofgeo, $heightofgeoUnit, $timesincelastupdate, $dpgsrefstationid,$checksum) = explode(',', str_replace('"','',$line));
 
