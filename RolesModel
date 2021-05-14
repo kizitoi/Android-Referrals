@@ -1,0 +1,62 @@
+@Keep
+public class RolesModel implements Serializable {
+
+    private String id;
+    private String idNo;
+    private String role;
+    private String online;
+    private String referred_by;
+    private String referral_code;
+
+    public RolesModel(String id, String idNo, String role, String online,String referred_by,String referral_code)
+    {
+        this.id = id;
+        this.idNo = idNo;
+        this.role = role;
+        this.online = online;
+        this.referred_by = referred_by;
+        this.referral_code = referral_code;
+    }
+    public RolesModel() {  }
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public String getIdNo() {
+        return idNo;
+    }
+    public void setINo(String idNo) {
+        this.idNo = idNo;
+    }
+
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getOnline() {
+        return online;
+    }
+    public void setOnline(String online) {
+        this.online = online;
+    }
+
+    public String getReferred_by() {
+        return referred_by;
+    }
+    public void setReferred_by(String role) {
+        this.referred_by = referred_by;
+    }
+
+    public String getReferral_code() {
+        return referral_code;
+    }
+    public void setReferral_code(String referral_code) {
+        this.referral_code = referral_code;
+    }
+
+}
